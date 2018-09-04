@@ -1,0 +1,74 @@
+
+
+    <h1>Dodaci</h1>
+
+    <a href="#inputModalExtra" data-toggle="modal" data-target="#inputModalExtra">Dodaj novi dodatak</a>
+
+<table class="table table-condensed">
+        <thead>
+          <tr>
+            <th>Naziv</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let extra of extras">
+          <tr>
+            <td>{{extra.name}}</td>
+            <td><button (click)="obrisi(extra)">Obrisi</button></td>
+            <td><button data-toggle="modal" data-target="#editModalExtra" (click)="sacuvaj(extra)">Izmeni</button></td>
+          </tr>
+        </tbody>
+</table>
+
+<div class="modal fade" id="inputModalExtra" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Novi dodatak</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form id="inputForm">
+          <div class="modal-body">
+          <input type="hidden" name="id" id="id" />
+        <p>
+          <label for="ime">Ime</label> <input type="text" name="ime"
+            id="ime" #ime/>
+        </p>
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Zatvori</button>
+            <button type="button" class="btn btn-primary" id="add" (click)="dodajDodatak(ime.value)">Potvrda</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="editModalExtra" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Izmeni dodatak</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form id="inputForm">
+          <div class="modal-body">
+          <input type="hidden" name="id" id="id" />
+        <p>
+          <label for="ime">Ime</label> <input type="text" name="imeIzmena"
+            id="imeIzmena" #imeIzmena/>
+        </p>
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Zatvori</button>
+            <button type="button" class="btn btn-primary" id="add" (click)="izmeniDodatak(imeIzmena.value)">Potvrda</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>

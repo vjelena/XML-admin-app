@@ -1,0 +1,26 @@
+
+
+    <h1>Korisnici</h1>
+<table class="table table-condensed">
+        <thead>
+          <tr>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Adresa</th>
+            <th>Status</th>
+            <th width=20px></th>
+            <th width=20px></th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let user of users">
+          <tr>
+            <td>{{user.name}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.address}}</td>
+            <td>{{user.status}}</td>
+            <td><button (click)="aktiviraj(user)">Aktiviraj</button></td>
+            <td><button (click)="blokiraj(user)">Blokiraj</button></td>
+            <td><button (click)="ukloni(user)">Ukloni</button></td>
+          </tr>
+        </tbody>
+</table>

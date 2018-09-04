@@ -1,0 +1,17 @@
+    <h1>Komentari</h1>
+<table class="table table-condensed">
+        <thead>
+          <tr>
+            <th>Sadrzaj</th>
+            <th>Status</th>
+            <th width=20px></th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let comm of comments">
+          <tr>
+            <td>{{comm.content}}</td>
+            <td>{{comm.status}}</td>
+            <td><button (click)="odobri(comm)">Odobri</button></td>
+          </tr>
+        </tbody>
+</table>

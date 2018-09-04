@@ -1,0 +1,69 @@
+<h1>Agenti</h1>
+<table class="table table-condensed">
+        <thead>
+          <tr>
+            <th>PIB</th>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Adresa</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let agent of agents">
+          <tr>
+            <td>{{agent.number}}</td>
+            <td>{{agent.name}}</td>
+            <td>{{agent.lastName}}</td>
+            <td>{{agent.address}}</td>
+          </tr>
+        </tbody>
+</table>
+
+<a href="#inputModal" data-toggle="modal" data-target="#inputModal">Dodaj agenta</a>
+
+<div class="modal fade" id="inputModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Novi agent</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form id="inputForm">
+          <div class="modal-body">
+          <input type="hidden" name="id" id="id" />
+        <p>
+          <label for="ime">Ime</label> <input type="text" name="ime"
+            id="ime" #ime/>
+        </p>
+        <p>
+          <label for="prezime">Prezime</label> <input type="text" name="prezime"
+            id="prezime" #prezime/>
+        </p>
+        <p>
+          <label for="adresa">Adresa</label> <input type="text" name="adresa"
+            id="adresa" #adresa/>
+        </p>
+        <p>
+          <label for="mbr">Poslovni maticni broj</label> <input type="text" name="mbr"
+            id="mbr" #mbr/>
+        </p>
+        <p>
+          <label for="username">Korisnicko ime agenta</label> <input type="text" name="username"
+            id="username" #username/>
+        </p>
+        <p>
+          <label for="password">Loinka agenta</label> <input type="text" name="password"
+            id="password" #password/>
+        </p>
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Zatvori</button>
+            <button type="button" class="btn btn-primary" id="add" (click)="dodajAgenta(ime.value,prezime.value,adresa.value,mbr.value,username.value,password.value)">Potvrda</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
